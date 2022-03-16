@@ -13,12 +13,11 @@ export default function Categories () {
 
     return (
         <div className="categories">
-            <div className="categories__left">
+            <div className="categories__switch">
                 {categories.map(item => (
                     <CategoriesSwitcher key={item} category={item}/>
                 ))}
             </div>
-            <div className="categories__right">sds</div>
         </div>
     )
 }
