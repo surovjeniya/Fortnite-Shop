@@ -1,9 +1,31 @@
-import React from "react";
+import React,{useContext} from "react";
+import { AppContext } from "../../context/AppContext";
 import './AddButton.scss';
 
-export default function AddButton () {
+export default function AddButton ({data}) {
+
+    const {orderHanlder} = useContext(AppContext)
+
+    const {
+        mainId,
+        displayName,
+        price
+    } = data
+
+
     return (
-        <button className="add-button">
+        <button 
+            onClick = {(e) => {
+                e.target.innerText = 'Добавлено'
+                e.target.classList.add('added')
+                orderHanlder({
+                    id:Date.now(),
+                    displayName,
+                    price,
+                    mainId
+                })
+            }}
+            className="add-button">
             Добавить
         </button>
     )
