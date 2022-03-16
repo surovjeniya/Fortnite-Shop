@@ -1,0 +1,12 @@
+@import './style/reset.scss';
+@import './style/var.scss';
+@import './style/config.scss';
+
+html {
+    font-size:10px
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: $c-bg;
+}
