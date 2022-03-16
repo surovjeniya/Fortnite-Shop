@@ -8,18 +8,35 @@ import Header from '../Header'
 import Home from '../../pages/Home'
 import Cart from '../../pages/Cart'
 import NotFound from '../../pages/NotFound'
+import Categories from '../../components/Categories'
 
 export default function App () {
 
     const [shopItems,setShopItems] = useState([])
+    const [order,setOrder] = useState([])
+    const [rarity,setRarity] = useState(['Legendary','Rare','Uncommon','Epic','All'])
+    const [filteredItems,setFilteredItems] = useState([])
     
     useEffect(() => {
         getShop().then(data => setShopItems(data.shop))
         
     },[])
 
+    const orderHanlder = (item) => {
+        setOrder([...order,item])
+    }
+
+    const filterHandler = (filter) => {
+        setFilteredItems(shopItems.filter(item => item.rarity.id === filter))
+    }
+
     const value = {
-        shopItems
+        shopItems,
+        orderHanlder,
+        order,
+        filterHandler,
+        rarity,
+        filteredItems
     }
 
     return (
@@ -28,6 +45,7 @@ export default function App () {
                 <Router>
                     <Header/>
                     <main className="main">
+                        <Categories/>
                         <Routes>
                             <Route exact path='/' element = {<Home/>}/>
                             <Route  path='/cart' element = {<Cart/>}/>
