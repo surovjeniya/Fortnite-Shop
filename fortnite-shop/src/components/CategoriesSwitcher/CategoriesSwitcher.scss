@@ -1,0 +1,13 @@
+.categories-switcher {
+    color:#2C2C2C;
+    background: #F9F9F9;
+    padding: 1.5rem 3rem;
+    border-radius: 30px;
+    border:none;
+    font-weight: 700;
+    cursor: pointer;
+    &.active {
+        background: #2C2C2C;
+        color:#fff;
+    }
+}

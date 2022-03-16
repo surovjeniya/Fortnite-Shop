@@ -19,7 +19,7 @@ export default function App () {
     },[])
 
     const value = {
-        example:''
+        shopItems
     }
 
     return (
