@@ -24,7 +24,7 @@ export default function App () {
 
     return (
         <AppContext.Provider value = {value}>
-            <div className="app">
+            <div className="app wrapper">
                 <Router>
                     <Header/>
                     <main className="main">
