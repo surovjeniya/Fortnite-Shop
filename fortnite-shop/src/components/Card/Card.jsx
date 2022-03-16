@@ -1,12 +1,10 @@
-import React,{useContext} from "react";
-import { AppContext } from "../../context/AppContext";
+import React from "react";
 import './Card.scss';
 //components
 import AddButton from "../AddButton/";
 
 export default function Card ({data}) {
 
-    const {orderHanlder} = useContext(AppContext)
 
     const {
         displayName,

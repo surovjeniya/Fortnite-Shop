@@ -1,4 +1,5 @@
 import React,{useContext} from "react";
+import {Link} from  'react-router-dom'
 import { AppContext } from "../../context/AppContext";
 import './Busket.scss'
 
@@ -10,8 +11,8 @@ export default function Busket() {
     },0)
 
     return (
-        <button className="busket">
+        <Link to='/cart' className="busket">
             {order.length ? totalPrice : '0'} Р | {order.length < 10 ? order.length : '9+'}
-        </button>
+        </Link>
     )
 }

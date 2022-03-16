@@ -9,7 +9,9 @@ export default function AddButton ({data}) {
     const {
         mainId,
         displayName,
-        price
+        price,
+        displayAssets,
+        displayDescription
     } = data
 
 
@@ -22,7 +24,9 @@ export default function AddButton ({data}) {
                     id:Date.now(),
                     displayName,
                     price,
-                    mainId
+                    mainId,
+                    displayAssets,
+                    displayDescription
                 })
             }}
             className="add-button">

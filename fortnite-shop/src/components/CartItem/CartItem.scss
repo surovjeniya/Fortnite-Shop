@@ -1,0 +1,27 @@
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    &__img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn {
+        background: #FFFFFF;
+        border: 2px solid #D7D7D7;
+        color:#D7D7D7;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
