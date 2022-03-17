@@ -8,7 +8,6 @@ import Header from '../Header'
 import Home from '../../pages/Home'
 import Cart from '../../pages/Cart'
 import NotFound from '../../pages/NotFound'
-import Categories from '../../components/Categories'
 import SetOrder from '../../pages/SetOrder'
 
 export default function App () {
@@ -36,7 +35,11 @@ export default function App () {
     }
 
     const removeOrderHanlder = (item) => {
-        setOrder(order.filter(item => item.id == item))
+        setOrder(order.filter(i => i.id == item))
+    }
+
+    const finalOrderHandler = (personladata) => {
+        console.log(personladata,order)
     }
 
     const value = {
@@ -47,7 +50,8 @@ export default function App () {
         rarity,
         filteredItems,
         removeCartHanlder,
-        removeOrderHanlder
+        removeOrderHanlder,
+        finalOrderHandler
     }
 
     return (
@@ -55,7 +59,6 @@ export default function App () {
             <div className="app wrapper">
                 <Router>
                     <Header/>
-                    <Categories/>
                     <main className="main">
                         <Routes>
                             <Route exact path='/' element = {<Home/>}/>
