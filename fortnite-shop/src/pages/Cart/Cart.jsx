@@ -1,6 +1,7 @@
-import React,{useContext} from "react";
+import React,{useContext,Fragment} from "react";
 import {Link} from 'react-router-dom'
 import { AppContext } from "../../context/AppContext";
+import cart from './img/cart.png';
 import './Cart.scss';
 //components
 import CartItem from '../../components/CartItem'
@@ -11,11 +12,13 @@ export default function Cart () {
     const totalPrice = order.reduce((sum,item) => {
         return sum + item.price.regularPrice
     },0)
+    
 
-    console.log(order)
     return (
         <div className="cart container">
-            <div className="cart__top">
+            {order.length ? 
+                <Fragment>
+                    <div className="cart__top">
                 <h2 className="cart__title">
                     <i className="fa-solid fa-cart-shopping"></i>
                     Корзина
@@ -45,6 +48,22 @@ export default function Cart () {
                 <Link  to='/' className="btn-back cart__btn">Вернуться назад</Link>
                 <Link to='/set-order' className="btn-order cart__btn">Оформить заказ</Link>
             </div>
+                </Fragment>
+            
+            : 
+                <Fragment>
+                    <div className="cart-empty">
+                        <h2 className="cart-empty__title">Корзина пустая <i className="fa-solid fa-face-frown"></i></h2>
+                        <p className="cart-empty__description">
+                            Вероятней всего, вы не заказывали ещё товары.
+                            Для того, чтобы заказать товар, перейди на главную страницу.
+                        </p>
+                        <img src={cart} alt="" className="cart-empty__img"/>
+                        <Link to = "/" className="cart-empty__btn">Вернуться назад</Link>
+                    </div>
+                </Fragment>
+            }
+            
         </div>
     )
 }
