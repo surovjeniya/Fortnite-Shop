@@ -2,4 +2,44 @@
     &.container {
         max-width: 841px;
     }
+    display: flex;
+    flex-direction: column;
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6rem;
+        & .btn__clear {
+            background: transparent;
+            color:#B6B6B6;
+            font-weight: 400;
+            font-size: 1.6rem;
+            border:none;
+            cursor: pointer;
+        }
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__buttons {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & .cart__btn {
+            padding: 1.5rem 3rem;
+            background: #FFFFFF;
+            color:#D3D3D3;
+            border: 1px solid #D3D3D3;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all .3s ease;
+            &:hover {
+                color:#fff;
+                background: #FE5F1E;
+            }
+        }
+    }
 }

@@ -1,11 +1,15 @@
 .cart-item {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 3rem;
+    border-bottom: 1px solid #ececec;
+    padding: 3rem 0;
     &__img {
         max-width: 80px;
         max-height: 80px;
+        border-radius: 50%;
     }
     &__info {
         display: flex;
@@ -23,5 +27,17 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        transition: all .3s ease;
+        &:hover {
+            border-color: #ce4d4d;
+            color:#ce4d4d;
+        }
+    }
+    &__price {
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    &__description {
+        color:#8D8D8D;
     }
 }

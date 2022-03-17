@@ -9,6 +9,7 @@ import Home from '../../pages/Home'
 import Cart from '../../pages/Cart'
 import NotFound from '../../pages/NotFound'
 import Categories from '../../components/Categories'
+import SetOrder from '../../pages/SetOrder'
 
 export default function App () {
 
@@ -30,13 +31,23 @@ export default function App () {
         setFilteredItems(shopItems.filter(item => item.rarity.id === filter))
     }
 
+    const removeCartHanlder = (id) => {
+        setOrder(order.filter(item => item.id !== id))
+    }
+
+    const removeOrderHanlder = (item) => {
+        setOrder(order.filter(item => item.id == item))
+    }
+
     const value = {
         shopItems,
         orderHanlder,
         order,
         filterHandler,
         rarity,
-        filteredItems
+        filteredItems,
+        removeCartHanlder,
+        removeOrderHanlder
     }
 
     return (
@@ -44,11 +55,12 @@ export default function App () {
             <div className="app wrapper">
                 <Router>
                     <Header/>
+                    <Categories/>
                     <main className="main">
-                        <Categories/>
                         <Routes>
                             <Route exact path='/' element = {<Home/>}/>
                             <Route  path='/cart' element = {<Cart/>}/>
+                            <Route  path='/set-order' element = {<SetOrder/>}/>
                             <Route  path='*' element = {<NotFound/>}/>
                         </Routes>
                     </main>

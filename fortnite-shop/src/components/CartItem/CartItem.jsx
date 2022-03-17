@@ -1,7 +1,11 @@
-import React from "react";
+import React,{useContext} from "react";
+import { AppContext } from "../../context/AppContext";
 import './CartItem.scss';
 
 export default function CartItem ({data}) {
+
+
+    const {removeCartHanlder} = useContext(AppContext)
 
     return (
         <div className="cart-item">
@@ -10,10 +14,12 @@ export default function CartItem ({data}) {
                 <h3 className="cart-item__name">{data.displayName}</h3>
                 <p className="cart-item__description">{data.displayDescription}</p>
             </div>
-            <p className="cart-item__price">
+            <h3 className="cart-item__price">
                 {data.price.regularPrice}
-            </p>
-            <button className="cart-item__btn">
+            </h3>
+            <button 
+                onClick = {() => removeCartHanlder(data.id)}
+                className="cart-item__btn">
                 x
             </button>
         </div>
