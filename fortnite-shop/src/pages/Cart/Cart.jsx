@@ -12,6 +12,8 @@ export default function Cart () {
     const totalPrice = order.reduce((sum,item) => {
         return sum + item.price.regularPrice
     },0)
+
+
     
 
     return (
